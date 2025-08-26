@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* Enable dark mode variant */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Light mode (default) */
+body {
+  @apply bg-gray-100 text-gray-900;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Dark mode */
+.dark body {
+  @apply bg-gray-900 text-gray-100;
+  font-family: 'Inter', sans-serif;
+}
+
+.product-card:hover {
+  --tw-drop-shadow: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+
+}
+
+.smooth {
+  transition: all 200ms ease;
+}
+
+/* Visually-hidden helper for a11y */
+.sr-only-focusable:focus {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  clip: auto !important;
+}
+
+@layer utilities {
+  @keyframes slide-in-left {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slide-in-right {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  .animate-slide-in-left {
+    animation: slide-in-left 0.8s ease-out both;
+  }
+  .animate-slide-in-right {
+    animation: slide-in-right 0.8s ease-out both;
+  }
+
+  /* animation delay helpers */
+  .animate-delay-200 { animation-delay: .2s; }
+  .animate-delay-400 { animation-delay: .4s; }
+}
