@@ -1,1 +1,1 @@
-# payment-card-nextjs
+# nextjs-payment-card
